@@ -1,0 +1,102 @@
+====================================================
+   SUITE DE TESTES E ANALISE: AVL vs RUBRO-NEGRA    
+====================================================
+
+>>> Testando Arvore Vazia (AVL)
+  [PASSOU] Busca em estrutura vazia devolve falso
+  [PASSOU] Remocao em estrutura vazia devolve falso
+  [PASSOU] Listagem em ordem retorna vetor vazio
+  [PASSOU] Altura de arvore vazia igual a zero
+  [PASSOU] Invariantes validas na arvore vazia
+
+>>> Testando Unico Elemento (AVL)
+  [PASSOU] Insercao do pacote 75
+  [PASSOU] Busca encontra pacote 75
+  [PASSOU] Altura igual a 1 com unico no
+  [PASSOU] Propriedades intactas apos insercao
+  [PASSOU] Remocao do unico no (75)
+  [PASSOU] Retorno ao estado vazio
+  [PASSOU] Propriedades intactas apos esvaziar
+
+>>> Testando Duplicatas e Inexistentes (AVL)
+  [PASSOU] Rejeicao de chave duplicada (20)
+  [PASSOU] Total de elementos mantido em 3
+  [PASSOU] Busca por chave ausente (500) resulta falso
+  [PASSOU] Remocao de chave ausente (500) resulta falso
+  [PASSOU] Propriedades de balanceamento preservadas
+
+>>> Testando Remocao (0, 1 e 2 filhos) (AVL)
+  [PASSOU] Exclusao de no folha (15)
+  [PASSOU] Exclusao de no com 1 filho (45)
+  [PASSOU] Exclusao de no com 2 filhos (30)
+  [PASSOU] Exclusao do no raiz (60)
+
+>>> Testando Ordens de Insercao (AVL)
+  [PASSOU] Carga crescente com 1200 pacotes
+  [PASSOU] Carga decrescente com 1200 pacotes
+  [PASSOU] Carga aleatoria com 1200 pacotes
+
+>>> Testando Carga Intensiva (15000 operacoes) (AVL)
+  [PASSOU] Integridade total apos 15000 operacoes mistas
+
+>>> Testando Arvore Vazia (Rubro-Negra)
+  [PASSOU] Busca em estrutura vazia devolve falso
+  [PASSOU] Remocao em estrutura vazia devolve falso
+  [PASSOU] Listagem em ordem retorna vetor vazio
+  [PASSOU] Altura de arvore vazia igual a zero
+  [PASSOU] Invariantes validas na arvore vazia
+
+>>> Testando Unico Elemento (Rubro-Negra)
+  [PASSOU] Insercao do pacote 75
+  [PASSOU] Busca encontra pacote 75
+  [PASSOU] Altura igual a 1 com unico no
+  [PASSOU] Propriedades intactas apos insercao
+  [PASSOU] Remocao do unico no (75)
+  [PASSOU] Retorno ao estado vazio
+  [PASSOU] Propriedades intactas apos esvaziar
+
+>>> Testando Duplicatas e Inexistentes (Rubro-Negra)
+  [PASSOU] Rejeicao de chave duplicada (20)
+  [PASSOU] Total de elementos mantido em 3
+  [PASSOU] Busca por chave ausente (500) resulta falso
+  [PASSOU] Remocao de chave ausente (500) resulta falso
+  [PASSOU] Propriedades de balanceamento preservadas
+
+>>> Testando Remocao (0, 1 e 2 filhos) (Rubro-Negra)
+  [PASSOU] Exclusao de no folha (15)
+  [PASSOU] Exclusao de no com 1 filho (45)
+  [PASSOU] Exclusao de no com 2 filhos (30)
+  [PASSOU] Exclusao do no raiz (60)
+
+>>> Testando Ordens de Insercao (Rubro-Negra)
+  [PASSOU] Carga crescente com 1200 pacotes
+  [PASSOU] Carga decrescente com 1200 pacotes
+  [PASSOU] Carga aleatoria com 1200 pacotes
+
+>>> Testando Carga Intensiva (15000 operacoes) (Rubro-Negra)
+  [PASSOU] Integridade total apos 15000 operacoes mistas
+
+----------------------------------------------------
+Resultado Final: 50 testes executados | 0 erros.
+----------------------------------------------------
+
+[1] Degeneracao da BST Comum sem Balanceamento (N = 1200):
+  - Entrada Crescente:   altura = 1200
+  - Entrada Decrescente: altura = 1200
+  - Entrada Aleatoria:   altura = 24
+
+[2] Comparativo Direto (Mesmos Conjuntos de Dados):
+
+>>> Carga N = 1200 pacotes (seguida da remocao de 600 pacotes):
+Crescente              | AVL Ins[h=11 rot=1189  ] | RB Ins[h=18 rot=1182   cor=5907  ] | AVL Rem[h=11 rot=98   ] | RB Rem[h=11 rot=110  ]
+Decrescente            | AVL Ins[h=11 rot=1189  ] | RB Ins[h=18 rot=1182   cor=5907  ] | AVL Rem[h=11 rot=116  ] | RB Rem[h=11 rot=144  ]
+Aleatoria              | AVL Ins[h=12 rot=768   ] | RB Ins[h=12 rot=676    cor=2718  ] | AVL Rem[h=11 rot=227  ] | RB Rem[h=12 rot=234  ]
+
+>>> Carga N = 80000 pacotes (seguida da remocao de 40000 pacotes):
+Crescente              | AVL Ins[h=17 rot=79983 ] | RB Ins[h=30 rot=79970  cor=399850] | AVL Rem[h=17 rot=6668 ] | RB Rem[h=18 rot=7373 ]
+Decrescente            | AVL Ins[h=17 rot=79983 ] | RB Ins[h=30 rot=79970  cor=399850] | AVL Rem[h=17 rot=6765 ] | RB Rem[h=18 rot=7495 ]
+Aleatoria              | AVL Ins[h=19 rot=55983 ] | RB Ins[h=20 rot=46779  cor=185539] | AVL Rem[h=18 rot=16186] | RB Rem[h=19 rot=16265]
+
+[3] Benchmark de Tempo (500.000 insercoes + 500.000 buscas):
+  - AVL:         1020 ms | Altura Final: 22 | Rotacoes: 349032
+  - Rubro-Negra: 918 ms | Altura Final: 23 | Rotacoes: 291058 | Recoloracoes: 1157696
